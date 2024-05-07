@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+    <table class="table" class="table-responsive(-sm|-md|-lg|-xl)">
+        <thead>
+            <th>Transac. Type</th>
+            <th>Stock</th>
+            <th>Stock Price</th>
+            <th>No. Of Shares</th>
+            <th>Date</th>
+        </thead>
+
+
+        <tbody>
+            {% for data in history %}
+
+                <tr>
+                    <td>{{data.transaction_type}}</td>
+                    <td>{{data.symbol}}</td>
+                    <td>${{data.purch_price}}</td>
+                    <td>{{data.num_shares}}</td>
+                    <td>{{data.datetime}}</td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

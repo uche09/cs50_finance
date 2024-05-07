@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<div class="balance-div">
+    <button class="btn btn-info" disabled>
+        <b>Balance:</b> {{balance}}
+    </button>
+    <br>
+    <button class="btn btn-info" disabled>
+        <b>Grand Total:</b> {{grand_total}}
+    </button>
+</div>
+
+
+    {% if not stocks %}
+        <br><br>
+        <h2>You don't have any share yet</h2>
+
+    {% else %}
+        <table class="table" class="table-responsive(-sm|-md|-lg|-xl)">
+            <thead>
+                <th>Stocks</th>
+                <th>No. Of Shares</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+            </thead>
+    
+            <tbody>
+                {% for stock in stocks %}
+
+                    <tr>
+                        <td>
+                            {{stock.symbol}}
+
+                        </td>
+                        <td>{{stock.total_shares}}</td>
+                        <td>${{stock.price}}</td>
+                        <td>${{"%.2f"|format(stock.total_value|float)}}</td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

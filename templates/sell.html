@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <!-- User Datetime and timezone -->
+        <input id="datetime" name="datetime" type="hidden">
+        <input id="timezone" name="timezone" type="hidden">
+
+        <select class="form-select mx-auto w-50" autofocus name="symbol" required>
+            <option selected disabled>Your Stocks</option>
+            
+            {% for stock in stocks %}
+                <option value="{{stock.symbol}}">{{stock.symbol}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input class="form-control mx-auto w-50" name="shares" placeholder="No. of shares (digit)"
+            type="text" required>
+        <br>
+        <input class="btn btn-primary" id="buy-sell-share" type="submit" value="Sell">
+    </form>
+{% endblock %}

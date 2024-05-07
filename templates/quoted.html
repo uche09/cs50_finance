@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table class="table" class="table-responsive(-sm|-md|-lg|-xl)">
+        <thead>
+            <th>Symbol</th>
+            <th>Price</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{response.symbol}}</td>
+                <td>${{response.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
