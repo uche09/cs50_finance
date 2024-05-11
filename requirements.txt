@@ -4,5 +4,4 @@ Flask-Session
 pytz
 requests
 werkzeug
-functools
 gunicorn
